@@ -1,4 +1,7 @@
-# sql-migration-doctor
+# SQL Migration Doctor
+
+[![Language](https://img.shields.io/github/languages/top/ulrichheringer/sql-migration-doctor?logo=rust&logoColor=white)](https://www.rust-lang.org/)
+[![License: MIT](https://img.shields.io/github/license/ulrichheringer/sql-migration-doctor)](LICENSE)
 
 Scan PostgreSQL migrations for operations that may cause data loss, long locks, or performance problems. Each finding includes the file, line number, and reason.
 
