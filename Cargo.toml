@@ -1,0 +1,9 @@
+[package]
+name = "sql-migration-doctor"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+description = "Find risky operations in PostgreSQL migration files"
+license = "MIT"
+
+[dependencies]
