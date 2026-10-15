@@ -13,11 +13,22 @@ struct Finding {
 fn main() {
     let mut args = env::args_os().skip(1);
     let Some(input) = args.next() else {
-        eprintln!("Usage: sql-migration-doctor <migration.sql|directory>");
+        print_usage();
         process::exit(2);
     };
+    match input.to_str() {
+        Some("--help" | "-h") => {
+            print_usage();
+            return;
+        }
+        Some("--version" | "-V") => {
+            println!("sql-migration-doctor {}", env!("CARGO_PKG_VERSION"));
+            return;
+        }
+        _ => {}
+    }
     if args.next().is_some() {
-        eprintln!("Usage: sql-migration-doctor <migration.sql|directory>");
+        print_usage();
         process::exit(2);
     }
 
@@ -58,6 +69,10 @@ fn main() {
     } else {
         process::exit(1);
     }
+}
+
+fn print_usage() {
+    println!("Usage: sql-migration-doctor <migration.sql|directory>\n\nAnalyze PostgreSQL migrations for common data loss, lock, and performance risks.\n\nOptions:\n  -h, --help       Print help\n  -V, --version    Print version");
 }
 
 fn collect_sql_files(path: &Path, files: &mut Vec<PathBuf>) -> std::io::Result<()> {
