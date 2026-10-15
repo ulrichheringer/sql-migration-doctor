@@ -1,6 +1,6 @@
 # sql-migration-doctor
 
-A dependency-free CLI that flags PostgreSQL migration statements likely to cause data loss, long locks, or expensive table work. Findings include the file and line; review them against your schema and PostgreSQL version.
+Scan PostgreSQL migrations for operations that may cause data loss, long locks, or performance problems. Each finding includes the file, line number, and reason.
 
 ## Install
 
